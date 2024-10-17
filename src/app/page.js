@@ -1,101 +1,126 @@
 import Image from "next/image";
+import Avatar from "/public/images/avatar.png";
+import { FaCircleQuestion } from "react-icons/fa6";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const contactDetails = [
+    { label: "Full Name", value: "Kenneth Valdez" },
+    { label: "Email", value: "fip@jukmuh.al" },
+    { label: "Phone", value: "(239) 816-9029" },
+    { label: "Mobile", value: "(320) 380-4539" },
+    { label: "Address", value: "Bay Area, San Francisco, CA" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <section className="bg-gray-100 py-10 text-[#1a202c]">
+      <div className="rounded-lg flex flex-col md:flex-row gap-8 w-11/12 md:w-4/5 m-auto">
+        <div className="bg-white shadow-lg rounded-lg flex flex-col items-center border md:w-1/3 p-6">
+          <Image
+            src={Avatar}
+            alt="Profile"
+            width={140}
+            height={140}
+            className="rounded-full"
+          />
+          <h4 className="text-2xl font-medium mt-4">John Doe</h4>
+          <p className="text-[#6c757d] mt-1">Full Stack Developer</p>
+          <p className="text-[#6c757d] mt-1">Bay Area, San Francisco, CA</p>
+          <div className="flex gap-2 mt-6">
+            <button className="bg-[#007bff] text-white py-2 px-4 rounded-md hover:bg-blue-600">
+              Follow
+            </button>
+            <button className="border border-[#007bff] text-[#007bff] py-2 px-4 rounded-md hover:bg-[#007bff] hover:text-white">
+              Message
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="bg-white shadow-lg rounded-lg flex-1 p-6">
+          <div className="flex flex-col gap-4">
+            {contactDetails.map((detail, index) => (
+              <div
+                key={index}
+                className="flex justify-between items-center border-b border-gray-300/30 pb-2"
+              >
+                <p className="w-1/3 font-semibold">{detail.label}</p>
+                <p className="w-2/3 text-[#6c757d]">{detail.value}</p>
+              </div>
+            ))}
+
+            <div className="mt-4">
+              <button className="bg-[#17a2b8] text-white py-2 px-4 rounded-lg hover:bg-[#138496]">
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 bg-white w-11/12 md:w-4/5 m-auto rounded-lg p-5 flex flex-col md:flex-row justify-between gap-5">
+        <div className="w-full md:w-3/5">
+          <h1 className="text-2xl font-semibold mt-4">Cart Page Heading</h1>
+          <div className="text-[#6c757d]">
+            <h4 className="text-base font-medium mt-4">
+              NikeCourt Air Max Volley
+            </h4>
+            <p className="mt-1">Women's Hard Court Tennis Shoe</p>
+            <p>Black/White/Mettalic Red Bronze</p>
+            <div className="flex items-center gap-3 mt-4">
+              {[
+                {
+                  title: "Size",
+                  options: [8, 9, 10],
+                },
+                {
+                  title: "Quantity",
+                  options: [1, 2, 3],
+                },
+              ].map((item, id) => {
+                return (
+                  <div key={id} className="flex items-center gap-2">
+                    <span>{item?.title}</span>
+                    <select className="w-20 md:w-24 outline-none cursor-pointer">
+                      {item?.options.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="flex items-center gap-5 mt-5">
+              <span className="underline cursor-pointer hover:text-[#333]">
+                Move to Favorites
+              </span>
+              <span className="underline cursor-pointer hover:text-[#333]">
+                Remove
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/5">
+          <h1 className="text-2xl font-semibold mt-4">Summary</h1>
+          <div className="mt-3 border-b border-gray-300/30 pb-2 flex justify-between">
+            <p className="flex items-center gap-1">
+              <span>Estimated Tax</span>
+              <FaCircleQuestion className="text-xs" />
+            </p>
+            <p className="mr-5">-</p>
+          </div>
+          <div className="mt-3 border-b border-gray-300/30 pb-2 flex justify-between">
+            <p>Total</p>
+            <p className="mr-5">-</p>
+          </div>
+          <button className="mt-5 bg-black w-full text-white rounded-full py-3">
+            Checkout
+          </button>
+          <button className="mt-3 bg-[#F4F6FF] w-full font-medium italic rounded-full py-3 ">
+            <span className="text-[#00457C]">Pay</span>
+            <span className="text-[#0079C1]">pal</span>
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }
