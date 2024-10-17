@@ -63,8 +63,8 @@ export default function Home() {
             <h4 className="text-base font-medium mt-4">
               NikeCourt Air Max Volley
             </h4>
-            <p className="mt-1">Women's Hard Court Tennis Shoe</p>
-            <p>Black/White/Mettalic Red Bronze</p>
+            <p className="mt-1">{`Women's Hard Court Tennis Shoe</p>
+            <p>Black/White/Mettalic Red Bronze`}</p>
             <div className="flex items-center gap-3 mt-4">
               {[
                 {

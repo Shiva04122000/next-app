@@ -80,8 +80,8 @@ const Page = () => {
               Get in touch
             </h1>
             <p className="text-base lg:text-lg mb-8">
-              Want to get in touch? We'd love to hear from you. Here's how you
-              can reach us.
+              {`Want to get in touch? We'd love to hear from you. Here's how you
+              can reach us.`}
             </p>
           </div>
 
